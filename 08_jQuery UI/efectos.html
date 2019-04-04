@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" href="jquery-ui.css" rel="stylesheet" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jquery-ui.js"></script>
+		<script type="text/javascript">
+			var x;
+			x=$(document);
+			x.ready(inicio);
+			function inicio(){
+				var x=$("#boton");
+				x.click(efectos);
+			}
+			function efectos(){
+				var x=$("#efectos");
+				x.toggle(ir,venir);
+			}
+			function ir(){
+				var x = $("#efectos");
+				x.animate({background:"yellow",width:"200px"},1000)
+			}
+			function venir(){
+				var x = $("#efectos");
+				x.animate({background:"red",width:"400px"},1000)
+			}
+	</script>
+		
+		<style type="text/css">
+			#efectos{
+				text-align:center;
+				width:300px;
+				height:300px;
+				border:1px solid grey;
+				position:relative;
+				background:rgba(0,0,0,0.1);
+			}
+		</style>	
+	</head>
+	<body>
+		<input type="button" id="boton" value="efectos">
+		<div id="efectos">
+			<h3>Titulo</h2>
+			<p>Texto</p>
+		</div>
+	</body>
+</html>
+

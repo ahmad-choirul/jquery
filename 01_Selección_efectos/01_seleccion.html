@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function ()
+        {
+            $('h1').click(aplicaelemento);
+            function aplicaelemento()
+            {
+                $(this).css("background-color", "yellow");//aplica solo el elemento ke hace click
+            }
+
+            $('#revelar').click(revelar);
+            function revelar()
+            {
+                $("li:first").css("background-color", "yellow");	// :firstprimer elemento de la lista
+                $("h1#cambiame").css("background-color", "yellow");
+                $("[href $='.jpg']").css("background-color", "yellow");//aplica solo href = jpg
+
+            }
+
+
+        });
+    </script>
+
+</head>
+<body>
+
+
+<h1>this</h1>
+<p>Lorem ipsum dolor sit amet.</p>
+<h1>this</h1>
+<p>Doloribus tenetur aliquam minus a.</p>
+<h1>this</h1>
+
+
+<input type="button" value="revelar" id="revelar"> <br>
+<a href="#">enlace 1</a> <br>
+<a href="imagen.jpg">enlace 2</a> <br>
+<a href="imagen.jpg">enlace 3</a> <br>
+<a href="#">enlace 4</a> <br>
+
+<ul>
+    <li>elemento 1</li>
+    <li>elemento 2</li>
+    <li>elemento 3</li>
+</ul>
+<h1 id="cambiame">yo soy un titulo</h1>
+<p id="cambiame">soy un parrafo</p>
+
+
+</body>
+</html>

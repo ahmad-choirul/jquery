@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 4: Decisions &amp; Loops - If... Else Statement</title>
+    <link rel="stylesheet" href="css/c04.css"/>
+</head>
+<body>
+<section id="page1">
+    <h1>Bullseye</h1>
+    <img src="images/teacher.png" id="teacher" alt="teacher"/>
+    <section id="answer"></section>
+</section>
+<script>
+    var pass = 50;      // Pass mark
+    var score = 75;    // Current score
+    var msg;            // Message
+
+    // Select message to write based on score
+    if (score > pass)
+        msg = 'Congratulations, you passed!';
+    else
+        msg = 'Have another go!';
+
+
+    var el = document.getElementById('answer');
+    el.textContent = msg;
+</script>
+</body>
+</html>

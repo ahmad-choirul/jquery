@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Amazon-Styled Nav Menu</title>
+    <script type="text/javascript">
+        var w = 0;
+        var h = 0;
+        var mout;
+        function emotion() {
+            var oMenu = document.getElementById("menu");
+            if (w <= 50) {
+                oMenu.style.display = "block";
+                fnLarge();
+            }
+            else {
+                fnSmall();
+            }
+        }
+        function fnLarge() {
+            var oMenu = document.getElementById("menu");
+            if (w < 200) {
+                w += 50;
+                h += 25;
+                oMenu.style.width = w + "px";
+                oMenu.style.height = h + "px";
+                window.setTimeout("fnLarge()", 10);
+            }
+        }
+        function fnSmall() {
+            var oMenu = document.getElementById("menu");
+            if (w > 0) {
+                w -= 50;
+                h -= 25;
+                oMenu.style.width = w + "px";
+                oMenu.style.height = h + "px";
+                window.setTimeout("fnSmall()", 5);
+            }
+            else {
+                oMenu.style.display = "none";
+            }
+        }
+    </script>
+    <style type="text/css">
+        body
+        {
+            text-align: center;
+            background: #222;
+
+        }
+
+        p
+        {
+            cursor: pointer;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            font-weight: bold;
+
+            font-family: arial, helvetica;
+            display: inline;
+        }
+
+        div a
+        {
+            color: #666;
+            text-decoration: none;
+        }
+
+        div a:hover
+        {
+            color: #039;
+            text-decoration: underline;
+        }
+
+        #menu
+        {
+            width: 480px;
+            background: #fff;
+            margin: 4px auto;
+            overflow: hidden;
+            display: none;
+            padding: 15px;
+        }
+
+        ul, li
+        {
+            margin: 0;
+            padding: 0;
+        }
+
+        li
+        {
+            list-style: none;
+            font: 12px helvetica, arial;
+        }
+
+        li.title
+        {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<p onclick="emotion();"><img src="noobr.png"/></p>
+
+<div id="menu" onmouseout="javascript:mout=setTimeout('fnSmall()',1000);" onMouseOver="javascript:clearTimeout(mout);">
+    varius congue. Donec dictum lorem scelerisque quam: Sed et urna faucibus pede fermentum In tristiqu rhoncus.
+</div>
+</body>
+</html>

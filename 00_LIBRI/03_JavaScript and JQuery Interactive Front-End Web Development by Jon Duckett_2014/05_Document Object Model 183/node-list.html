@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 5: Document Object Model - Node List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/c05.css">
+</head>
+<body>
+<div id="page">
+    <h1 id="header">List</h1>
+    <h2>Buy groceries</h2>
+    <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+    </ul>
+</div>
+<script>
+    var hotItems = document.querySelectorAll('li.hot'); // Store NodeList in array
+    if (hotItems.length > 0)
+    {                          // If it contains items
+        for (var i = 0; i < hotItems.length; i++)       // Loop through each item
+            hotItems[i].className = 'cool';         // Change value of class attribute
+
+    }
+</script>
+</body>
+</html>

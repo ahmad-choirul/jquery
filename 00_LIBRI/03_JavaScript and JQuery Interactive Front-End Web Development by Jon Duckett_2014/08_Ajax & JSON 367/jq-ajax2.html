@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 8: Ajax &amp; JSON - .ajax() 2 of 3</title>
+    <link rel="stylesheet" href="css/c08.css" />
+  </head>
+  <body>
+
+    <h1>The Maker Bus</h1>
+
+    <nav>
+      <a href="jq-ajax.html">HOME</a>
+      <a href="jq-ajax2.html" class="current">ROUTE</a>
+      <a href="jq-ajax3.html">TOYS</a>
+    </nav>
+
+    <section id="content">
+      <div id="container" class="location">
+        <h2>The bus stops here.</h2>
+
+        <div class="event">
+          <img src="img/map-ca.png" alt="Map of San Francisco" />
+          <p><b>SAN FRANCISCO, CA</b><br>4th September</p>
+        </div>
+        <div class="event">
+          <img src="img/map-tx.png" alt="Map of Texas" />
+          <p><b>AUSTIN, TX</b><br>8th September</p>
+        </div>
+        <div class="event">
+          <img src="img/map-ny.png" alt="Map of New York" />
+          <p><b>NEW YORK, NY</b><br>12th September</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script>
+
+      // NOTE: This example will not work locally:
+      // In Chrome / IE / Safari you may experience problems because of cross-domain restrictions.
+      // In Firefox, content may load but styles may not be applied.
+      // You can try it out on the website for the book http://javascriptbook.com/code/c08/
+      // or run it on your own server.
+
+      $('nav a').on('click', function(e) {
+        e.preventDefault();
+        var url = this.href;                                      // URL to load
+        var $content = $('#content');                             // Cache selection
+
+        $('nav a.current').removeClass('current');                // Update links
+        $(this).addClass('current');
+        $('#container').remove();                                 // Remove content
+
+        $.ajax({
+          type: "GET",                                            // GET or POST
+          url: url,                                               // Path to file
+          timeout: 2000,                                          // Waiting time
+          beforeSend: function() {                                // Before Ajax
+            $content.append('<div id="load">Loading</div>');      // Load message
+          },
+          complete: function() {                                  // Once finished
+            $('#load').remove();                                  // Clear message
+          },
+          success: function(data) {                               // Show content
+            $content.html( $(data).find('#container') ).hide().fadeIn(400);
+          },
+          error: function() {                                     // Show error msg
+            $content.html('<div class="container">Please try again soon.</div>');
+          }
+        });
+
+      });
+
+      /*
+       Here is some further information on what happens when the call is successful:
+
+       success: function(data) {...  The data parameter holds the Ajax response with the new content
+       $content was stored on line 10 it is the element whose id attribut has a value of content
+       $content.html() updates the HTML inside this element
+       $(data) creates a jQuery object containing the response.
+       .find('#container') gets the container element from that response hides it and fades it in
+       */
+    </script>
+
+  </body>
+</html>

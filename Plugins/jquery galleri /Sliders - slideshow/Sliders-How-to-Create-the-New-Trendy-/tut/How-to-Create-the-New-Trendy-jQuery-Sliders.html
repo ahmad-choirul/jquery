@@ -1,0 +1,853 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html" /> 
+<title>How to Create the New Trendy jQuery Sliders</title> 
+ 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+	<link rel="stylesheet" href="http://tutsplus.s3.cdn.plus.org/css/tutsplus.css" type="text/css" media="screen" charset="utf-8" />	
+	<link rel="shortcut icon" href="http://psdtuts.com/wp-content/themes/psdtuts_v2/site_images/at_sfavicon.ico" /> 
+	<style> #content, #inner { width: 600px; margin: auto; position: relative;  } #logo { position: absolute; top: -100px; left: 0;} #top { padding-top: 90px;} #content img { max-width: 100%;} #inner h4 { margin-top: 0;} #inner img { margin-bottom: 30px; } h2 { margin-bottom: 0;}</style>
+</head> 
+ 
+<body> 
+<div id="top"> 
+	<div id="inner">
+  <img src="http://net.tutsplus.com/wp-content/themes/tuts_theme/images/logo.gif" id="logo" /> 
+  <img src="img/preview.jpg" id="preview"/> 
+  <h2> How to Create the New Trendy jQuery Sliders</h2> 
+  <h4>By: Abhin Sharma</h4> 
+	<p style="min-height: 60px;">
+		<p>jQuery sliders are becoming more popular day by day; with more free and premium sliders pouring in regularly. Knowing how an advanced slider like this works is becoming a must. In this tutorial, we are going to create a full-fledged jQuery slider which supports inline comments. Let's get started!</p>
+	</p>
+	</div>
+</div> 
+ 
+<div id="content"> 
+
+	<h2><span>Step 0:</span> Setting up the Workspace</h2>
+
+
+	<p>This tutorial assumes that you have a basic knowledge of jQuery, the structure of jQuery plugins, and HTML and CSS. Here's a list of the components we'll be using: </p>
+	<ul>
+	<li><a href="http://jquery.com">jQuery</a></li>
+	<li><a href="http://gsgd.co.uk/sandbox/jquery/easing/">The jQuery easing plugin</a></li>
+	<li>Images from the following photographers:
+	<ul>
+	<li>Hamed Saber - <a href="http://www.flickr.com/photos/hamed/281311122/sizes/o/">source</a></li>
+	<li>Aussiegall - <a href="http://www.flickr.com/photos/aussiegall/345009210/sizes/o/">source</a></li>
+	<li>Seyed mostafa zamani - <a href="http://www.flickr.com/photos/seyyed_mostafa_zamani/4266283238/sizes/m/">source</a></li>
+	<li>Hamed Saber - <a href="http://www.flickr.com/photos/hamed/395120762/sizes/o/">source</a></li>
+	<li>Fesoj - <a href="http://www.flickr.com/photos/fesoj/4067990568/sizes/o/">source</a></li>
+	<li>Paul (dex) - <a href="http://www.flickr.com/photos/dexxus/2559338363/sizes/z/">source</a></li>
+	</ul>
+	</li>
+	</ul>
+
+	<hr /> <h2><span> Step 1 : </span> Understanding the Basics</h2>
+
+	<p>
+	Before we get started on our actual slider, let's see how a slider works. Basically, a slider consists of images stacked on top of each other. Then, using JavaScript, each image is brought to front by altering its <code>z-index</code> property. Early on, most sliders used scroll or fade animations, but now-a-days, many sliders are pushing the boundaries and are matching the capabilities of a flash based sliders. These effects are achieved by using the image as a background for an array of small div blocks and then animating them. One other alternative is using the CSS <code>clip</code> property on the images, but it is highly ineffective and slows the browser down greatly. As noted above, we'll be using the jQuery easing plugin for better animations.
+	</p>
+
+	<div class='tutorial_image'><img src="img/1.jpg" alt="img1" /></div>
+
+
+	<hr /> <h2><span> Step 2 </span>: Creating the Necessary Files</h2>
+	<p>We'll need to create three files for our slider. First, we'll have the HTML page which will use our slider. Then, there's the CSS file for styling our slider and its controls. Finally, we'll need a JavaScript file that implements our logic. That JavaScript file will be a jQuery plugin, and we'll call it the JWslider ;). So, to recap: </p>
+	<ul>
+	<li>HTML file: index.html</li>
+	<li>Javascript file: jquery.JWslider.js</li>
+	<li>CSS file: JWslider.css</li>
+	</ul>
+
+	<hr /> <h2><span> Step 3 :</span> Setting up our HTML file</h2>
+	<p>We'll start off with our HTML file, index.html. Import jQuery, jQuery easing, jQuery.JWslider.js and JWslider.css. Most sliders follow a similar structure; that is, they create a list and add images inside the list items. We will do the same. So, our code for index.html looks likes this:</p>
+
+	<pre name='code' class='html'>
+
+	&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	&lt;html xmlns="http://www.w3.org/1999/xhtml">
+	&lt;head>
+	    &lt;script type="text/javascript" src="js/jquery-1.4.2.min.js" >&lt;/script>
+	    &lt;script type="text/javascript" src="js/jquery.easing.1.3.js">&lt;/script>
+	    &lt;script type="text/javascript" src="js/jquery.JWslider.js" >&lt;/script>
+	    &lt;link rel="stylesheet" type="text/css" href="css/JWslider.css" />
+	    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    &lt;title> JW slider&lt;/title>
+	&lt;/head>
+
+	&lt;body>
+	    &lt;div style="width:960px;margin-left:auto;margin-right:auto;">
+
+	        &lt;ul id="test">
+	            &lt;li>&lt;img src="img/im1.jpg"  />&lt;/li>
+	            &lt;li>&lt;img src="img/im2.jpg"  />&lt;/li>
+	            &lt;li>&lt;img src="img/im3.jpg"  />&lt;/li>
+	            &lt;li>&lt;img src="img/im4.jpg"  />&lt;/li>
+	            &lt;li>&lt;img src="img/im5.jpg"  />&lt;/li>
+	            &lt;li>&lt;img src="img/im6.jpg"  />&lt;/li>
+	            &lt;li>&lt;img src="img/im7.jpg"  />&lt;/li>
+	        &lt;/ul>
+
+	    &lt;/div>
+	&lt;/body>
+	&lt;/html>
+
+
+	</pre>
+	<p>So far, we have just added a list of images and included the files for our plugin.</p>
+
+	<hr /> <h2><span> Step 4 :</span> Coding the CSS </h2>
+	<p>Now open up the CSS file; since we need images to stack on top of each other, we will position the list items to be absolute. One of the disadvantages of using such sliders is that images are not scaled to fit the dimensions given, so we need to make sure that overflowing part are hidden. That's why we will make the parent element's <code>overflow</code> attribute <code>hidden</code>. So far our code looks like this:</p>
+
+	<pre name="code" class="css">
+	.JWslider {
+	    padding:0px;
+	    position:relative;
+	    z-index:100;
+	    overflow:hidden;
+	}
+	.JWslider ul{
+	    list-style:none;
+	    padding:0px;
+	    margin:0px;
+	    position:relative;
+	}
+	.JWslider ul li {
+	    position:absolute;
+	    display:block;
+	    width:100%;
+	}
+	.JWslider ul li img {
+	    position:relative;
+	    z-index:1;
+	}
+	</pre>
+
+	<p>Now we are going to add the two classes that will be used to show each image based on z-index. The <strong>.active</strong> class will have the highest z-index and <strong>.reset</strong> class will have second highest z-index. </p>
+	<pre name="code" class="css">
+	.JWslider .active {
+	     z-index:10;
+	}
+	.JWslider .reset {
+	    z-index:3;
+	}
+	</pre>
+	<p>The <strong>.active</strong> class is the class which we will apply to the slide (list item) to be shown; since it has the highest z-index, it will in the front. The <strong>.reset</strong> class is used on the previously-active slide; that is, the image which was shown prior to the current one. This is very useful because it keeps the slides in order; if the reset class were not present, images would appear in the order they are marked up, and the last list item's image would pop up in between animations.</p>
+
+	<pre name="code" class="css">
+	.JWslider span {
+	    display:none;
+	    color:#fff;
+	    bottom:0px;
+	    padding:10px;
+	    width:100%;
+	    left:0px;
+	    position:absolute!important;
+	    z-index:555; background:url('i/comment-bg.png');
+	    font-family:Verdana, Geneva, sans-serif;
+	}
+	.control_active {
+	    background: url('i/active.png') no-repeat!important;
+	    height:20px!important;
+	    margin-top:9px!important;
+	}
+	.control_hover {
+	    background: url('i/active.png') top no-repeat!important;
+	    height:20px!important;
+	    margin-top:9px!important;
+	}
+	</pre>
+
+	<p>Since we're building a slider, we need a way to show in-line HTML data associated with each image. One way we could achieve this is by using the image's <code>alt</code> attribute; however, this will limit us to only text. To get around that, we will use a span tag after the image to hold data related to that image. Finally, the last two declarations above have styled the controls of our slider. I am using the controller UI from <a href="http://365psd.com/day/88/">365psd.com, day 88</a>. I have already sliced and exported the images. The <strong>.control_active</strong> class will be added to the controls list item based on the slideshow's image index; <strong>.control_hover</strong> is for styling list items on mouse hover.</p>
+
+	<hr /> <h2><span> Step 5 :</span> Building the JavaScript file</h2>
+	<p>Now we will begin to code our plugin: open jquery.JWslider.js and start off by creating the basic structure of a jQuery plugin.</p>
+	<pre name="code" class="js">
+	(function($) {
+
+	    $.fn.JWslider = function(options){
+
+	    }
+
+	}(jQuery));
+	</pre>
+
+	<hr /> <h2>Step 6 :</span> Adding the Options</h2>
+	<p>We will add many options to make our plugin as flexible as possible. We'll include slider height, width, a custom effect, the div block's dimension, custom block size for each effect, animation duration, a "show controls" boolean, and a function that executes after every slide is shown.</p>
+	<pre name="code" class="js">
+
+	var defaults = {
+	    time: 4000,
+	    width: 600,
+	    height: 400,
+	    effect: 'none',
+	    blocksize: {height:'',width:'' },
+	    duration: 700,
+	    controls: true,
+	    customblocksize: {
+	      // image transitions global settings
+	      cubeoutcenter      : { height:100, width:100 },
+	      cubegrow           : { height:100, width:100 },
+	      cubesidegrow       : { height:100, width:100 },
+	      stripealternate    : { height:100, width:40  },
+	      stripefade         : { height:100, width:40  },
+	      stripehalfalternate: { height:100, width:40  }
+	    },
+	    callback:function(){   } 
+	};
+	</pre>
+
+	<p><strong>Note:</strong> the variables in the <code>customblocksize</code> object are effects name that we will implement later.</p>
+
+	<hr /> <h2><span> Step 7:</span> Adding the Variables</h2>
+	<p>Now, we are going to declare the variables that we'll use in the script; we'll also get references to all the elements which we are going to use frequently.</p>
+
+	<pre name="code" class="js">
+	var options = $.extend(defaults, options);
+	var root    = $(this);
+	var li      = root.find("li");
+	var images  = li.find("img");
+
+	var pos, random_no, timer, image_timer, arr, 
+	    index, block, w, h, src, parent, im, 
+	    override = false, 
+	    in_animation = false,
+	    controls;
+
+	var current = li.eq(1).toggleClass('active'),
+	    prev = li.first().addClass("reset");
+
+	var bool = true,
+	    first_bool = true;
+
+	</pre>
+	<p>We will discuss the role of each variable as we go along.</p>
+
+	<hr /> <h2><span> Step 8:</span> Introducing the Modules </h2>
+	<p>Okay, so far we have added the options and declared the variables; we will now divide our whole plugin into modules so it will be easy to work with it. Let's look at the modules we will have in our plugin:</p>
+	<ul>
+	<li><strong>Init function</strong>: wraps everything</li>
+	<li><strong>Switcher function</strong>: switches slides</li>
+	<li><strong>Custom effects module</strong>: effects applied on the images</li>
+	<li><strong>Effect function</strong>: main effect-switching module, which changes animations randomly or based on options provided.</li>
+	<li><strong>Append Controls function</strong>: adds controls to the slider.</li>
+	<li><strong>Set Image function</strong>: brings image directly to front when user clicks on control item, based on its index.</li>
+	<li><strong>End effects function</strong>: Executes after the effect has ended, hides the current comment and prepares the next image.</li>
+	<li>We also have a function to generate random numbers for effects.</li>
+	</ul>
+
+	<p><strong>Note:</strong> We could have implemented custom effects in one function rather than creating separate function for each effect to reduced redundancy, but for this tutorial we will keep each effect separate, so it will be easier for you to create your own ;) .</p>
+
+	<hr /> <h2><span> Step 9:</span> Coding the Init Function</h2>
+	<p>Since all the code is wrapped in the init function, we will start off by checking for the controls option; if that is set to true, we'll call the appendControls function. Since our slideshow begins with the first image, we will show the comment (that is, the span after the image) and we will hide the current list item's image. It's always a good practice to wrap your elements within an element with a class of "your plugin name" to avoid conflicts with other elements on the page. Finally we will set the dimensions of our parent div with values provided in the options.</p>
+	<pre name="code" class="js">
+	function init()
+	{
+	    if(options.controls==true)
+	    {
+	        appendControls();
+	    }
+
+		li.first().find("span").css("display","block");
+		current.children().hide();
+
+		root.wrap("&lt;div class='JWslider' />");
+		root.parent().css({"width":options.width,height:options.height});
+
+	}
+	</pre>
+
+	<p><strong>Note:</strong> All our functions will be inside the init block, with the exception of the random number function.</p>
+
+	<hr /> <h2><span> Step 10:</span> Coding the Switcher Module</h2>
+	<p>This module is responsible for switching the slides; basically, it involves the adding of the "active" class to next element and the "reset" class to the current element. First, we store the previous element; if there was no previous element, that means last element in the list was the previous one. That might seem confusing, but we are moving clockwise around the list, which means the first slide will come after the last slide has been shown. We will remove the reset class from the previous element and add it to the current element, which has just been shown. Lastly, the next slide is set as active and its image is hidden, because we're animating the blocks of the div which appear in its place later. </p>
+
+	<pre name="code" class="js">
+	function switcher()
+	{
+	    if(current.prev().length > 0)
+	        prev = current.prev();
+	    else
+	        prev = li.last();
+
+	    prev.removeClass("reset");
+
+	    current.toggleClass("active reset");
+
+	    if(current.next().length > 0)   // setting the next slide
+	        current = current.next();
+	    else
+	        current = li.first(); 
+
+	    current.children().hide();
+	    current.addClass("active");
+	    options.callback(current.children()[0]);
+	}
+	</pre>
+
+	<hr /> <h2><span> Step 11:</span> Coding the Custom Effects </h2>
+	<p>Now comes the fun part: we will create some custom animations. You can create any type of animation using combinations of blocks of a div with various widths and heights. Most sliders have combinations of two types: creating squares and creating vertical or horizontal stripes. In this tutorial, we will cover both by creating four effects (though the demo has six effects).</p>
+
+	<p>We will create 2 effects based on animating square div blocks.</p>
+	<h3>Square Effect 1: CubeOutCenter</h3>
+	<p>Our first effect will be the one in which a square grows from the center position of its area. We will start off by initializing the variables, which include the following:</p>
+	<ul>
+	<li><code>in_animation</code> is a flag variable, which signals that the effect is going on. We will use it later to check whether to proceed or not when user manually clicks on the controls.</li>
+	<li><code>w</code> &amp; <code>h</code> are dimension variables for small blocks of divs. First we will check if the global <code>blocksize</code> is set; otherwise, we will go for a custom variable size.</li>
+	<li>The <code>parent</code> variable will have the image's parent; that, the current <code>li</code> element. We could use <code>current</code> variable directly, but for now, we will use <code>parent</code> variable.</li>
+	<li><code>src</code> will contain the image's source; it will be the background image of the divs.</li>
+	<li>Also we will initialize other variables <code>i</code>, <code>j</code>, <code>index</code> which will be used in loops, etc.</li>
+	</ul>
+
+	<pre name="code" class="js">
+	function cubeoutcenter(image)
+	{
+	    in_animation = true;
+	    if(options.blocksize.width!='') {
+	        w = Math.floor(options.blocksize.width);
+	        h = Math.floor(options.blocksize.height);
+	    }
+	    else {
+	        w = Math.floor(options.customblocksize.cubeoutcenter.width);
+	        h = Math.floor(options.customblocksize.cubeoutcenter.height);	 
+	    }
+	    parent = image.parent();
+	    arr = new Array(); i = 0;  j = 0; index = 0;
+	    src = image.attr("src");
+	};	
+	</pre>
+
+	<p>Now we will create a <code>div</code> element with the following properties:</p>
+	<ul>
+	<li>position: absolute </li>
+	<li>dimensions set to 0 , because our blocks will grow to the size <code>w</code>, <code>h</code></li>
+	<li>margin has been set to half the width and height, so that element is in the center.</li>
+	<li>background-image is set to the current image</li>
+	<li>zIndex set to 99 , greater then reset class so that the animation appears in the front.</li>
+	</ul>
+
+	<pre name="code" class="js">
+	block = $("&lt;div />", {
+	    css:{
+	        position: "absolute",
+	        width: 0,
+	        height: 0,
+	        marginTop: h/2,
+	        marginLeft: w/2,
+	        'background-image': 'url('+src+')',
+	        zIndex: 99,
+	        display: 'none'
+	    }
+	}).addClass('disblock');
+	</pre>
+
+	<p>The "disblock" class is added so that it will be easy for us to remove the div blocks after the animation has ended.</p>
+
+	<p>Now we are going to iterate through a loop till the <code>i</code> variable is less than the width of the slider; inside that, we will create a nested loop which will run till its value is less than height of the slider. Now, we are going to create a clone of the div block with its background position changing. Here, after every iteration, background position changes by equal amount so we get a consistent image. Finally we will append the block in our parent (that is, the current list item). Finally, we'll increment the <code>i</code> and <code>j</code> variables by the block's width and height. The top and left values are also incremented by the same amount; that gives it the appearance of a single big image.</p>
+
+	<pre name="code" class="js">
+	while(i&lt;options.width)
+	{
+	    j = 0;
+	    while (j&lt;options.height)
+	    {    
+	        arr[index] = block.clone().css({left:i ,top:j,backgroundPosition:-i+"px "+-j+"px" });
+	        parent.append(arr[index++]);
+	        j = j + h;
+	    }
+	    i = i + w;
+	}
+	</pre>
+
+	<div class='tutorial_image'><img src="img/2.jpg" alt="img2" /></div>
+
+	<p>Now that we have added the blocks, we have to add the animation. So we will animate the blocks to give our effect. For that, we will use <code>setInterval</code> with the interval time of 80 milliseconds; you can lessen the amount of time if you want, but IE8 will lag behind. Since we have stored the block elements inside the <code>arr</code> array, we will iterate the array from its starting position and animate each block. Blocks will expand to its full size and as it expands the margins will be reduced so that the blocks will appear in the center of the area. Finally we will check whether the <code>i</code> variable is greater than the array size; if it is, we will call the <code>endeffect</code> function which will end the effect and return. We will see <code>endeffect()</code> in detail later.</p>
+
+	<pre name="code" class="js">
+	i = 0;
+
+	timer = setInterval(function(){
+
+	    if(i>=arr.length)
+	    { 
+	        endeffect(image);
+	        return;
+	    }
+
+	    arr[i++].animate({
+	        height: h,
+	        width: w,
+	        marginTop: 0,
+	        marginLeft: 0
+	    } , {
+	        duration: options.duration,
+	        easing:'easeOutSine'
+	    });
+
+	}, 80);
+	</pre>
+
+	<p><strong>Note:</strong> we are using <code>easeOutSine</code>; easing can greatly improve the feel of the animation. One good example is the stripe half alternate effect, available in the source, which uses <code>easeOutBack</code>.</p>
+
+
+	<h3>CubeOutCenter Complete Code</h3>
+	<pre name="code" class="js">
+	function cubeoutcenter(image)
+	{
+	    in_animation = true;
+		if(options.blocksize.width != ''){
+	        w = Math.floor(options.blocksize.width);
+	        h = Math.floor(options.blocksize.height);
+	    }
+	    else
+	    {
+	        w = Math.floor(options.customblocksize.cubeoutcenter.width);
+	        h = Math.floor(options.customblocksize.cubeoutcenter.height);	 
+	    }
+	    parent = image.parent();
+	    arr = new Array(); i =0;  j =0; index = 0;
+	    src = image.attr("src");
+	    block = $("&lt;div />" , {
+	        css:{
+	            position: "absolute",
+	            width: 0,
+	            height: 0,
+	            marginTop: h/2,
+	            marginLeft: w/2,
+	            'background-image': 'url('+src+')',
+	            zIndex: 99,
+	            display: 'none'
+	        }
+	    }).addClass('disblock');
+
+	    while(i &lt; options.width)
+	    {
+	        j = 0;
+	        while(j &lt; options.height)
+	        {
+	            arr[index] = block.clone().css({
+	                left:i,
+	                top:j,
+	                backgroundPosition: -i + "px " + -j + "px"
+	            });
+	            parent.append(arr[index++]);
+	            j = j + h;
+	        }
+	        i = i + w;
+	    }
+	    i = 0;
+	    timer = setInterval(function(){
+
+	        if(i >= arr.length)
+	        { 
+	            endeffect(image);
+	            return;
+	        }
+
+	        arr[i++].animate({ 
+	            height: h,
+	            width: w,
+	            marginTop: 0,
+	            marginLeft: 0
+	        },{
+	            duration: options.duration, 
+	            easing: 'easeOutSine'
+	        });
+	    },80);
+	};	
+	</pre>
+	<h3>Square Effect 2: SideGrow Effect</h3>
+	<p>Now we are going to create an effect in which square grows from the side; the whole code will remain the same except for the following portions:</p>
+
+	<p>Since we want blocks to grow from side, no margin properties needed; we'll change the block's CSS properties will change to this: 
+	<pre name="code" class="js">
+	block = $("&lt;div />" , {
+	    css: {
+	        position: "absolute",
+	        width: 0,
+	        height: 0,
+	        'background-image': 'url('+src+')',
+	        zIndex: 99,
+	        display: 'none'
+	    }
+	}).addClass('disblock');
+
+	</pre>
+	<p>Instead of indexing sequentially, we will iterate the array randomly by calling our <code>random_array</code> function, which returns an array of random numbers (it takes a length as a parameter).</li>
+	<pre name="code" class="js">
+	random_no = random_array(arr.length); // array of random numbers
+	</pre>
+	<p>The last part is almost same, except we won't need any margin properties in animation function; also, we'll be using the <code>random_no</code> array values to animate squares randomly.</p>
+	<pre name="code" class="js">
+	timer = setInterval(function(){
+
+	    if(i >= arr.length)
+	    {
+	        endeffect(image);
+	        return;
+	    }
+
+	    arr[random_no[i++]].animate({
+	        height: h,
+	        width: w,
+	        opacity: 1
+	    },{
+	        duration: options.duration,
+	        easing:'easeOutCubic'
+	    });
+	},80);
+	</pre>
+	</p>
+	<p>Now we will implement 2 stripe based effects.</p>
+	<h3>Stripe Effect 1: Alternate Stripe Effect</h3>
+	<p>Another common series of effects is the animation of vertical or horizontal stripes. For now, we will create an effect in which stripes slide in alternatively from opposite sides. The structure is the same as previous animations: we'll only change the CSS blocks and animation part.</p>
+
+	<p>The first thing to note is that stripe animations usually have full length vertical or horizontal stripes; so, our variable initialization changes to 
+	<pre name="code" class="js">
+	if(options.blocksize.width!='')
+	    w = Math.floor(options.blocksize.width);
+	else
+	    w = Math.floor(options.customblocksize.stripefade.width);
+
+	h = options.height;
+	</pre>
+	<p>Notice that we are creating full length vertical stripes with width defined in the options. You apply the same process for horizontal stripes.</p>
+	<p>The block's CSS properties will change to this:</p> 
+	<pre name="code" class="js">
+	block = $("&lt;div />" , {
+	    css: {
+	        position: "absolute",
+	        width: w,
+	        height: h,
+	        'background-image': 'url('+src+')',
+	        zIndex: 99,
+	        display: 'block',
+	        marginTop:o ptions.height,
+	        opacity: 0
+	    }
+	}).addClass('disblock');
+	</pre>
+	<p>Note here that height and width are not zero because we want the stripes to slide, not grow.</p>
+	<p>We want alternative stripes to appear, but for now every stripe created will be positioned below the slider stage. This is because all blocks will have positive margin values, so we will implement a condition that will alternatively set the display block's <code>margin-top </code> property to negative height-of-the-slider so that it pulls the block up.</p>
+	<pre name="code" class="js">
+	while(i&lt;options.width)
+	{
+	    if(flag==true)
+	    {
+	        css = {left:i, backgroundPosition: -i + "px 0px" };
+	        flag = false;
+	    }
+	    else
+	    {
+	        css = {left:i, backgroundPosition: -i + "px 0px", marginTop: -options.height };
+	        flag = true;
+	    }
+	    arr[index] = block.clone().css(css);
+	    parent.append(arr[index++]);
+	    i = i + w;
+	}
+	</pre>
+	<p>
+	One other alternate to the if condition is using $(".disblock:odd").css("margin-top",-options.height), but unnecessary usage of selector should be avoided.
+	</p>
+
+	<p>The last part is almost same, except we won't need any height and width properties in animation. We will just set <code>margin-top</code> to 0 and <code>opacity</code> to 1. So now we have a nice alternating stripe effect.</p>
+	<pre name="code" class="js">
+	timer = setInterval(function(){
+
+	    if(i>=arr.length)
+	    {
+	        endeffect(image);
+	        return;
+	    }
+	    arr[i++].animate({
+	        marginTop:0,
+	        opacity:1
+	    },{
+	        duration: options.duration, 
+	        easing:'easeOutSine'
+	    });
+	},80);
+	</pre>
+	</li>
+
+	 <h3>Stripe Effect 2: Stripe Fade effect </h3>
+	<p>This is also one of the popular stripe effects, where stripes fade in sequentially or randomly. From our last effect there are only few changes.</p>
+
+	<p>The first thing is that fade animations usually have full length vertical or horizontal stripes, so our variable initialization changes to this:</p> 
+	<pre name="code" class="js">
+	if(options.blocksize.width!='')
+	    w = Math.floor(options.blocksize.width);
+	else
+	    w = Math.floor(options.customblocksize.stripefade.width);
+
+	h = options.height;
+	</pre>
+	<p>Notice that we are creating full length vertical stripes with width defined in the options. You can apply the same process for horizontal stripes.</p>
+	<p>The block's CSS properties will change to this:</p>
+	<pre name="code" class="js">
+	block = $("&lt;div />", {
+	    css: {
+	        position: "absolute",
+	        width: w,
+	        height: h,
+	        'background-image': 'url('+src+')',
+	        zIndex: 99,
+	        display: 'block',
+	        opacity: 0
+	    }
+	}).addClass('disblock');
+
+	</pre>
+	<p>There is no need for margins, as we are interested in only the fade effect.</p>
+	<p>In the loop section, we are only setting the background position and appending in the parent along with changing the position of the blocks. 
+	<pre name="code" class="js">
+	while(i&lt;options.width)
+	{
+	    arr[index] = block.clone().css({left:i, backgroundPosition: -i + "px 0px" });
+	    parent.append(arr[index++]);
+
+	    i = i + w;
+	}
+
+	i = 0;
+	</pre>
+
+	<p>The last part is almost same, except we won't need any margin-top,height and width properties in animation. We will just set opacity to 1. So now we have a nice fade effect.</p>
+	<pre name="code" class="js">
+	timer = setInterval(function(){
+
+	    if(i>=arr.length)
+	    {
+	    endeffect(image);
+	    return;
+	    }
+
+	    arr[i++].animate({
+	        opacity:1
+	    },{
+	        duration: 700, 
+	        easing:'easeOutSine'
+	    });
+	},80);
+	</pre>
+	<p>We could have used the <code>fadeIn</code> function , but it causes a bug in Chrome (even though the animation works fine).</p>
+
+	<p>In the same way, you could randomly fade in the stripes. Or, you could do alternating half-stripes (as I've done in the demo). </p>
+
+
+	<hr /> <h2><span> Step 12:</span> Creating End Effect Module</h2>
+	<p>Now it's time to create the function that is being called after all blocks have been animated. The following things are happening here:</p>
+	<ul>
+	<li> Just after the animation, comments (that is, the span tag inside the current element) appear.</li>
+	<li>If controls are enabled then, we set the index of the control item based on the index of current slide.</li>
+	<li>We clear the setInterval used to animate blocks.</li>
+	<li>We set a timeout function which will trigger after 1 second; the reason for this is to give sufficient time for all blocks to complete their animation. In this block we will show the image, remove all the div blocks, set the in_animation to false, and set the controls to active again.</li>
+	<li>Since automatic animation will be stopped when user manually clicks on the controls, we will check the override variable; if it is false, then we will call the switcher() module (that switches to next list item), fade out the comment, and finally call the main effects module.</li>
+	</ul>
+	<pre name="code" class="js">
+	function endeffect(image)
+	{
+	    current.find("span").fadeIn('slow');
+	    if(options.controls==true)
+	    {
+	        controls.removeClass("control_active");
+	        controls.eq(current.index(".JWslider li")).addClass("control_active");
+	    }
+	    clearInterval(timer);
+	    setTimeout(function() {
+	        image.show();            // show the real image
+	        $(".disblock").remove(); // remove the divs
+	        // switch next slide
+	        in_animation = false;
+	        if(override == false)      // Return if manually triggered
+	            image_timer = setTimeout(function() { 
+	                switcher();
+	                image.next().fadeOut('slow');
+	                effects();
+	            }, options.time); 
+	    },1000);
+	};
+	</pre>
+
+	<p><strong>Note:</strong> that options.time is the duration set by the user to show each slide. </p>
+
+
+	<hr /> <h2><span> Step 13:</span> Building Effects Module</h2>
+	<p>Now for our main effects module: this decides which effect to show. It is simple than other modules: here, we first generate a random number between 0 and number of effects available. Then, we check if global option is set to a particular number and set the variable to that one. The next portion is a special case: if a user tries to manually click the controls before slideshow starts, we will see that later. Finally we will use the switch to select the effect based on the <code>ch</code> variable's value.</p>
+	<pre name="code" class="js">
+	function effects()
+	{
+	    var ch = Math.floor(Math.random()*6);
+
+	    if(!isNaN(options.effect))
+	        ch = options.effect;
+
+	    if(bool==true)
+	    {
+	        li.first().find("span").hide();
+	        bool=false;
+	        first_bool = false;
+	    }
+
+	    switch(ch)
+	    {
+	        case 0:cubesidegrow(current.find("img"));break;
+	        case 1:cubeoutcenter(current.find("img"));break;
+	        case 2:cubegrow(current.find("img"));break;
+	        case 3:stripealternate(current.find("img"));break;
+	        case 4:stripefade(current.find("img"));break;
+	        case 5:stripehalfalternate(current.find("img"));break;
+	    }
+	}
+	</pre>
+
+	<hr /> <h2><span> Step 14:</span> Creating the Controls</h2>
+	<p>Now we are going to work with controls. In this module, we will add the control list after our slider and set the first list item to have the class "control_active." The control list items will handle events such as the onclick <code>setImage</code> function, which is called with its index as parameter, or the hover functions, which toggle the class <code>control_hover</code>.</p>
+	<pre name="code" class="js">
+	function appendControls()
+	{
+	    var str = "&lt;ul class='controls'>";
+	    for(var i=0;i&lt;li.length;i++)
+	        str = str + "&lt;li>"+(i+1)+"&lt;/li>";
+
+	    str = str+"&lt;/ul>";
+
+	    root.after(str);
+
+	    controls = root.parent().find(".controls li");
+	    controls.first().addClass("control_active");
+
+	    controls.bind({
+	        click    : function() { setImage($(this).index()); 	},
+	        mouseover: function() { $(this).toggleClass("control_hover"); },
+	        mouseout : function() { $(this).toggleClass("control_hover"); }
+	    });
+	}
+	</pre>
+
+	<hr /> <h2><span> Step 15:</span> Setting the Image</h2>
+	<p>Our slider is almost complete. Now we will implement the <code>setImage</code> module, which takes an index parameter and animates to show that image. First, we will check if <code>in_animation</code> is set to true; that means animation is going on; we'll also check to see if same control item has been clicked: if that's true, we will return. If <code>in_animation</code> is false then we will do the following tasks:</p>
+
+	<ul>
+	<li>Remove the "reset" and "active" classes from slides.</li>
+	<li>Clear the automatic slides system. </li>
+	<li>Now the test block is the special condition which occurs when user clicks on controls before we start off the slider. For that we have to manually add the "reset" class to the first slide so that during animation last image does not pop in. Since this is required only the first time (if user clicks on the control), we will set it to false when effect modules is called the first time.</li>
+	<li>Then, we will add the "reset" class to the current slide and "active" to the slide based on the index we are given as parameter.</li>
+	<li>Then we will fadeIn the span tag of that slide and call the effects function. It is quite similar to the switcher function.</li>
+	</ul>
+	<pre name="code" class="js">
+	function setImage(index)
+	{
+	    if(in_animation == true || current.index(".JWslider ul li") == index)
+	        return;
+
+	    li.removeClass("reset active");
+
+	    current.find("span").hide();	
+
+	    clearTimeout(image_timer); // Manual Override...
+
+	    if(first_bool==true)
+	    {
+	        li.first().addClass("reset");
+	    }
+	    current.addClass("reset");
+	    current = li.eq(index).addClass("active");
+	    current.children().hide();
+	    current.find("span").fadeIn(700);	
+	    override = true;
+	    effects();
+	}
+	</pre>
+
+
+	<hr /> <h2><span> Step 16:</span>  Starting the Engines</h2>
+	<p>So, everything is ready! We will start our slider by calling the effects function with the duration defined in the option.</p>
+	<pre name="code" class="js">
+	image_timer = setTimeout( function() {   effects();  }, options.time );  // Starting the Slideshow
+	</pre>
+
+	<p><strong>Note:</strong> All the code previous to this snippet is wrapped inside the init function; after this snipper, the jQuery plugin ends.</p>
+
+	<hr /> <h2><span> Step 17:</span> Implementing the Random Number Generator</h2>
+	<p>Now we will implement a simple function that generates an array of numbers; then, our slider is done :D. This function is outside the jQuery plugin.</p>
+	<pre name="code" class="js">
+	function random_array(maxn)
+	{
+	    var array = new Array();
+	    var temp,i,flag=true;
+	    var index =0;
+	    while(index&lt;maxn)
+	    {
+	        flag = true;
+	        temp = Math.floor(Math.random() * maxn);
+	        for(i=0;i&lt;array.length;i++)
+	        {
+	            if(temp==array[i])
+	            {
+	                flag=false;
+	                break;
+	            }
+	        }
+	        if(flag==true)
+	            array[index++] = temp;
+	    }
+	    return array;
+	};
+
+	</pre>
+
+	<hr /> <h2><span> Step 18:</span>  Graceful degradation</h2>
+	<p>Though our slider is complete, when JavaScript is disabled it falls apart and images are all over the place. For this, we are going to add a fix using CSS. What we are going to do is wrap our slider's unordered list with a div, set its height property to the value you would give in the option, and set overflow to auto. We can easily reset that using jQuery.</p>
+
+	<p>HTML code will look like this:</p>
+	<pre name="code" class="html">
+	&lt;div id='wrapper'>
+	    &lt;ul id="test">
+	        &lt;li>&lt;img src="img/im1.jpg"  />&lt;/li>
+	        &lt;li>&lt;img src="img/im2.jpg"  />&lt;/li>
+	        &lt;li>&lt;img src="img/im3.jpg"  />&lt;/li>
+	        &lt;li>&lt;img src="img/im4.jpg"  />&lt;/li>
+	        &lt;li>&lt;img src="img/im5.jpg"  />&lt;/li>
+	        &lt;li>&lt;img src="img/im6.jpg"  />&lt;/li>
+	        &lt;li>&lt;img src="img/im7.jpg"  />&lt;/li>
+	    &lt;/ul>
+	&lt;/div>
+	</pre>
+	<p>Styling for this element would be as follows:</p<
+	<pre name="code" class="css">
+	#wrapper {   height:410px; overflow:auto;  }
+	</pre>
+	<p>When JavaScript is enabled, we can easily change this using the CSS function:</p>
+	<pre name="code" class="js">
+	$(function(){
+	    $("#wrapper").css({height:"auto" , overflow:"visible"}); // just reset it again :)
+	    $("#test").JWslider();
+	});
+	</pre>
+	<h3>When JS is Disabled</h3>
+	<div class='tutorial_image'><img src="img/3.jpg" alt='img3'/></div>
+
+	<p>A little extra work can save the whole page from falling apart. Finally our slider is complete ready to be used!</p>
+
+	<p>So now you know how to put together a jQuery slider with killer custom animations; thanks for reading!</p>
+	
+
+</div> 
+
+<script class="javascript" src="http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shCore.js"></script>
+<script class="javascript" src="http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/shBrushAll.js"></script>
+	<script type="text/javascript" class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://net.tutsplus.com/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+</body> 
+</html>
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Platzi Weather</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header class="main-header">
+    <h1>Geolocation - API REST</h1>
+</header>
+
+<div class="loader">Geolocalizando tu pocision por favor espere...</div>
+
+<form action="" class="search">
+    <input type="text" data-input="cityAdd" class="search__text" placeholder="Agregar una nueva ciudad">
+    <input type="submit" data-button="add" class="search__btn btn" value="Anadir cuidades">
+    <button data-saved-cities class="search__btn btn">Ver Ciudades</button>
+</form>
+
+
+
+<main class="cards-group">
+    <!-- template--city nombre del template que jquery usara para stampar los datos y sus hijos usa el atributo data-->
+    <template id="template--city">
+        <div class="card">
+            <header class="card__header">
+                <h3 data-city class="card__tile"></h3>
+                <h4 data-time class="card__time"></h4>
+            </header>
+            <div class="card__info">
+                <img data-icon src="" class="card__image">
+                <span data-temp="max" class="card__maxt"></span>
+                <span data-temp="min" class="card__mint"></span>
+                <span data-temp="current" class="card__temp"></span>
+            </div>
+        </div>
+    </template>
+</main>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

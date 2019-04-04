@@ -1,0 +1,56 @@
+<html>
+<meta charset="utf-8">
+	<head>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+			var x;
+			x=$(document);
+			x.ready(inicio);
+
+			function inicio()
+				{
+				  var x;
+				  x=$("#enviar");
+				  x.click(enviar);
+				}
+			function enviar()
+				{
+				  var v=$("#numero").attr("value");
+				  $.ajax({
+							  async:true,
+							  type: "POST",
+							  dataType: "html",
+							  contentType: "application/x-www-form-urlencoded",
+							  url:"ajaxcompleto.php",
+							  data:"anio="+v,
+							  beforeSend:inicioEnvio,
+							  success:llegada,
+							  timeout:4000,
+							  error:problemas
+							}); 
+				  return false;
+				}
+				function inicioEnvio()
+					{
+					  var x=$("#resultados");
+					  x.html('Cargando...');
+					}
+				function llegada(datos)
+					{
+					  $("#resultados").text(datos);
+					}
+				function problemas()
+					{
+					  $("#resultados").text('Problemas en el servidor.');
+					}
+		</script>
+
+	</head>
+	<body>
+		Dime que año es este
+		<input type="text" name="anio" id="numero">
+		<input type="submit" value="Y te digo cual es el siguiente" id="enviar">
+		<div id="resultados"></div>
+
+	</body>
+</html>

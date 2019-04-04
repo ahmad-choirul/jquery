@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#boton1").click(presionSubmit);
+
+
+        function presionSubmit() {
+            var v = $("#dni").attr("value");
+            $.getJSON("json.php", {dni: v}, llegadaDatos);
+//            return false;
+        }
+
+        function llegadaDatos(datos) {
+            console.log(datos);
+            $("#resultados").html("Nombre:" + datos.nombre + "<br>" + "Apellido:" + datos.apellido + "<br>" + "Direccion:" + datos.direccion);
+        }
+
+//            function presionSubmit() {
+//                var v = $("#dni").attr("value");
+//                $.getJSON("json.php", {dni: v}, function (datos) {
+//                    console.log(datos);
+//                    $("#resultados").html("Nombre:" + datos.nombre + "<br>" + "Apellido:" + datos.apellido + "<br>" + "Direccion:" + datos.direccion);
+//
+//                })
+//            }
+
+        });
+
+    </script>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+Ingrese dni (solo existen los valores 1,2 y 3):
+<input type="text" name="dni" id="dni" size="10"><br>
+<input type="button" value="Enviar" id="boton1">
+
+<div id="resultados"></div>
+</body>
+</html>

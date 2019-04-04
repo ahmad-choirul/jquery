@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplo ejercicio</title>
+        <meta name="description" content="">
+
+
+        <link rel="stylesheet" href="css/principal.css">
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+
+        <script type="text/javascript">
+
+       $(document).ready(function(){
+
+        //Estoy realizando tres veces una búsqueda por el documento (DOM). No es la manera más efectiva de hacerlo.
+//        $('#azul').css('background-color','#e67e22');
+//        $('#azul').height('600');
+//        $('#azul').html('<p>Ahora soy de color naranja</p>');
+
+        // Podría concatenar las diferentes acciones para ahorrarme recorridos del documento. Quizá se resienta la legibilidad del código.
+        //$('#azul').css('background-color','#e67e22').height('600').html('<p>Ahora soy de color naranja</p>'); 
+
+         //Lo mejor sería guardar la búsqueda en una variable para emplearla siempre que lo necesitara.
+        var $capa = $('#azul');
+
+        $capa.css('background-color','#e67e22');
+        $capa.height('600');
+        $capa.html('<p>Ahora soy de color naranjaAAAA</p>');
+
+   });
+
+
+
+        </script>
+
+    </head>
+    <body>
+        <div id="azul">
+            <p>Hola! Soy una caja de color azul!</p>
+        </div>
+        <div id="rojo">
+             <p>Hola! Soy una caja de color rojo!</p></p>
+        </div>
+        <div id="verde">
+             <p>Hola! Soy una caja de color verde!</p>
+        </div>
+        <div id="amarillo">
+            <p>Hola! Soy una caja de color amarillo!</p></p>
+        </div>
+        
+    </body>
+
+   
+
+</html>

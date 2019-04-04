@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 7: Introducing jQuery - Effects</title>
+    <link rel="stylesheet" href="css/c07.css"/>
+</head>
+<body>
+<div id="page">
+    <h1 id="header">List</h1>
+    <h2>Buy groceries</h2>
+    <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+    $(function ()
+    {
+
+        $('h2').hide().slideDown();
+        var $li = $('li');
+        $li.hide().each(function (index)
+        {
+            $(this).delay(700 * index).fadeIn(700);
+        });
+
+        $li.on('click', function ()
+        {
+            $(this).fadeOut(700);
+        });
+
+    });
+</script>
+</body>
+</html>

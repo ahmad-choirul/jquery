@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+	<script>
+	$(document).ready(function() {
+/*
+		$('#mostrar').click(function() {
+				$('#objetivo').show('fast');//fast slow
+			});
+			
+		$('#ocultar').click(function(){
+				$('#objetivo').hide('fast');
+			});
+
+		$('#mostrar').click(function() {
+				$('#objetivo').fadeIn('slow');//fast slow
+			});
+			
+		$('#ocultar').click(function(){
+				$('#objetivo').fadeOut('slow');
+			});
+
+		$('#mostrar').click(function(){
+				$('#objetivo').fadeTo('fast',0.5);
+			});
+
+		$('#ocultar').click(function(){
+				$('#objetivo').fadeTo('fast',0.1);
+			});
+
+		$('#ocultar').click(function(){
+				$('#objetivo').toggle('slow');
+			});
+		$('#ocultar').click(function(){
+				$('#objetivo').slideUp('slow');
+			});
+
+
+		$('#mostrar').click(function(){
+				$('#objetivo').slideDown('slow');
+			});
+
+
+		$('#mostrar').click(muestratogle);
+			function muestratogle(){
+			$('#objetivo').slideToggle('slow');
+			}*/
+
+		$('#animar').click(animar);
+			function animar() {
+			var x=$('#objetivo');
+				x.animate({height:300},"slow");
+				x.animate({width:300},3000);
+				x.animate({height:100},"normal");
+				x.animate({height:100},1000);
+		}
+
+	});
+
+
+	</script>
+
+	<style>
+	#objetivo{
+		width: 200px;
+		height: 200px;
+		background-color: yellow;
+		border: 1px solid black;
+	}
+
+	</style>
+
+
+
+
+</head>
+<body>
+
+ <input type="button" id="mostrar" value="mostrar">
+ <input type="button" id="ocultar" value="ocultar">
+ <input type="button" id="animar" value="animar">
+
+ <div id="objetivo">yo soy un div</div>
+
+
+
+
+
+	
+</body>
+</html>

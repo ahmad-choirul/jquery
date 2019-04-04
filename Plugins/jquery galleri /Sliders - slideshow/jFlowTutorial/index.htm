@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>jFlow</title>
+    <link href="css/default.css" rel="stylesheet" type="text/css" />
+    <script src="jquery-1.2.6.pack.js" type="text/javascript"></script>
+    <script src="jquery.flow.1.1.min.js" type="text/javascript"></script>
+    
+     <!--[if lt IE 7]>
+            <script type="text/javascript" src="unitpngfix.js"></script>
+    <![endif]-->   
+
+    
+    <script type="text/javascript">
+    $(function() {
+        $("div#controller").jFlow({
+            slides: "#slides",
+            width: "980px",
+            height: "313px"
+        });
+    });
+    </script>
+</head>
+<body>
+<div id="wrap">
+
+    <div id="controller" class="hidden">
+        <span class="jFlowControl">No 1</span>
+        <span class="jFlowControl">No 2</span>
+        <span class="jFlowControl">No 3</span>
+    </div>
+    
+    <div id="prevNext">
+        <img src="images/prev.png" alt="Previous Tab" class="jFlowPrev" />
+        <img src="images/next.png" alt="Next Tab" class="jFlowNext" />
+    </div>
+    
+    <div id="slides">
+        <div><img src="images/1.jpg" alt="photo" /><p>This is photo number one. Neato!</p></div>
+        <div><img src="images/2.jpg" alt="photo" /><p>This is photo number two. Neato!</p></div>
+        <div><img src="images/3.jpg" alt="photo" /><p>This is photo number three. Neato!</p></div>
+    </div>
+    
+</div><!-- end wrap -->
+</body>
+</html>

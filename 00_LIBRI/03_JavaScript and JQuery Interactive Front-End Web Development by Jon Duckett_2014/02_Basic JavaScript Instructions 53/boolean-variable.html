@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Boolean Variable</title>
+    <link rel="stylesheet" href="css/c02.css" />
+  </head>
+  <body>
+    <h1>Elderflower</h1>
+    <div id="content">
+      <div class="message">Available: <span id="stock"></span></div>
+      <div class="message">Shipping: <span id="shipping"></span></div>
+    </div>
+    <script>
+      // Create variables and assign their values
+      var inStock;
+      var shipping;
+      inStock = true;
+      shipping = false;
+
+      // Get the element that has an id of stock
+      var elStock = document.getElementById('stock');
+      // Set class name with value of inStock variable
+      elStock.className = inStock;
+
+      // Get the element that has an id of shipping
+      var elShip = document.getElementById('shipping');
+      // Set class name with value of shipping variable
+      elShip.className = shipping;
+    </script>
+  </body>
+</html>

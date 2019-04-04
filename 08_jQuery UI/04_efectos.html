@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="jquery-ui.css" rel="stylesheet">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+	<script src="jquery-ui.js"></script>
+	<script>
+		 var x = $(document);
+		 x.ready(boton);
+
+		 	function boton(){
+		 		x=$('#boton1');
+		 		x.click(efecto);
+		 	}
+
+		 	function efecto (){
+		 		x=$('#efectos');
+		 		//x.effect('blind');
+		 		//x.effect('bounce');
+		 		//x.effect('shake');
+		 		//x.effect('clip');
+		 		//x.effect('drop');
+		 		//x.effect('explode');
+		 		//x.effect('puff');
+		 		//x.effect('fade');
+		 		x.effect('fold');
+
+		 	}
+
+	</script>
+
+	<style>
+		#efectos {
+			text-align: center;
+			width: 300px;
+			height: 300px;
+			border: 1px solid grey;
+			position: relative;
+			background-color: red;
+		}
+	</style>
+
+
+
+</head>
+<body>
+
+	<input type="button" id="boton1" value="efectos">
+	<div id="efectos">
+	</div>
+	
+</body>
+</html>

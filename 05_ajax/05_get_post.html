@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+    <script src="jquery.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('a').click(muestrame);
+
+            function muestrame() {
+                var pagina = $(this).attr('href');
+                var x = $('#hablame');
+                x.load(pagina);
+                return false;
+            }
+
+
+            $('#enviar').click(calcular);
+
+            function calcular() {
+                var calcula = $('#numero').attr("value");
+                $.post("05_ajax.php", {numero: calcula}, recibir);
+                return false;
+            }
+
+            function recibir(datos) {
+                $('#resultado').text(datos);
+            }
+
+        });
+
+
+    </script>
+
+</head>
+<body>
+<a href="05_ajax.php?color=verde">hablame del verde</a>
+<a href="05_ajax.php?color=rojo">hablame del rojo</a>
+<a href="05_ajax.php?color=azul">hablame del azul</a><br><br>
+
+<div id="hablame"></div>
+<br>
+
+<h2>calcular x 5</h2>
+
+<form action="calculadora.php" method="post">
+
+    <input type="text" id="numero" name="numero">
+    <input type="submit" value="Enviar" id="enviar">
+</form>
+<div id="resultado"></div>
+<br>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Array Constructor</title>
+  <link rel="stylesheet" href="css/c02.css" />
+</head>
+<body>
+  <h1>Elderflower</h1>
+  <div id="content">
+      <div class="message">Color: <span id="colors">We were unable to find your color choice. Please try again...</span></div>
+  </div>
+  <script>
+
+    // Create and name the variable.
+    // Tell the interpreter it is an array.
+    // Assign values inside the parentheses.
+    var colors = new Array('white',
+            'black',
+            'custom');
+
+    // Show the first item from the array.
+    var el = document.getElementById('colors');
+    el.textContent = colors[0];
+
+    /*
+     NOTE: textContent does not work in IE8 or earlier
+     You can use innerHTML on line 10, but note the security issues on p228-231
+     el.innerHTML = colors[0];
+
+     There was a typo in the first print run in the last line of this example, it has been corrected in this file.
+     */
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+<script>
+	$(function(){
+		var array_1 = ['uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve'];
+		
+		$.grep(array_1, function(value, index){
+			$('#array_1').append('index: ' + index + ' value: ' + value + '<br>');
+		});
+
+		
+
+	});
+
+
+</script>
+</head>
+<body>
+
+<div id="array_1"></div>
+	
+</body>
+</html>

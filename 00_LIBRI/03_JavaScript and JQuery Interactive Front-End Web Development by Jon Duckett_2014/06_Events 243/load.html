@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 6: Events - Load</title>
+    <link rel="stylesheet" href="css/c06.css"/>
+</head>
+<body>
+<div id="page">
+    <h1>List King</h1>
+    <h2>New Account</h2>
+    <form method="post" action="">
+
+        <label for="username">Create a username: </label> <input type="text" id="username"/>
+        <div id="feedback"></div>
+
+        <label for="password">Create a password: </label> <input type="password" id="password"/>
+
+        <input type="submit" value="sign up"/>
+
+    </form>
+</div>
+<script>
+    function setup()
+    {                                  // Declare function
+        var textInput;                                    // Create variable
+        textInput = document.getElementById('username');  // Get username input
+        textInput.focus();                                // Give username focus
+    }
+
+    window.addEventListener('load', setup, false); // When page loaded call setup()
+
+
+    /* LONGER VERSION WITH IE8 (and lower) compatibility
+
+     if (el.addEventListener) {
+     el.addEventListener('click', function(e) {
+     itemDone(e);
+     }, false);
+     } else {
+     el.attachEvent('onload', function(e){
+     itemDone(e);
+     });
+     }
+
+     */
+
+</script>
+</body>
+</html>

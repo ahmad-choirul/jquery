@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 13: Form Enhancement and Validation - Select All Checkboxes</title>
+    <link rel="stylesheet" href="css/c13.css"/>
+</head>
+<body>
+<div class="container login">
+    <form id="interests" action="/login" method="post">
+        <div class="one-third column">
+            <img src="img/logo.png" alt="logo" id="logo"/>
+        </div>
+        <div class="two-thirds column" id="main">
+            <fieldset>
+                <legend>Genres</legend>
+                <label><input type="checkbox" value="all" id="all">All</label>
+                <label><input type="checkbox" name="genre" value="animation">Animation</label>
+                <label><input type="checkbox" name="genre" value="docs">Documentary</label>
+                <label><input type="checkbox" name="genre" value="shorts">Shorts</label>
+            </fieldset>
+        </div><!-- .two-thirds -->
+    </form>
+</div><!-- .container -->
+<script src="js/utilities.js"></script>
+<script>
+    (function ()
+    {
+        var form = document.getElementById('interests'); // Get form
+        var elements = form.elements;                      // All elements in form
+        var options = elements.genre;                     // Array: genre checkboxes
+        var all = document.getElementById('all');     // The 'All' checkbox
+
+        function updateAll()
+        {
+            for (var i = 0; i < options.length; i++)
+            {       // Loop through checkboxes
+                options[i].checked = all.checked;              // Update checked property
+                console.log(options[i].name);
+            }
+        }
+
+        addEvent(all, 'change', updateAll);                // Add event listener
+
+        function clearAllOption(e)
+        {
+            var target = e.target || e.srcElement;           // Get target of event
+            if (!target.checked)
+            {                           // If not checked
+                all.checked = false;                           // Uncheck 'All' checkbox
+            }
+        }
+
+        for (var i = 0; i < options.length; i++)
+        {         // Loop through checkboxes
+            addEvent(options[i], 'change', clearAllOption);  // Add event listener
+        }
+
+    }());
+</script>
+</body>
+</html>

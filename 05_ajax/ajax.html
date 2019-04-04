@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+			var x;
+			x=$(document);
+			x.ready(inicio);
+
+			function inicio(){
+				var x=$("#boton");
+				x.click(ejecutarAjax);
+			}
+			function ejecutarAjax(){
+				$.ajax({
+					method:"post",
+					url:"ajax.php"
+				}).done(function( html ) {
+					$( "#lahora" ).append( html );
+				});
+			}
+
+
+
+		</script>
+	</head>
+	<body>
+		<input type="button" id="boton" value="Conocer la hora">
+		<div id="lahora"></div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 4: Decisions &amp; Loops - Comparison Operator</title>
+    <link rel="stylesheet" href="css/c04.css" />
+  </head>
+  <body>
+    <section id="page1">
+      <h1>Bullseye</h1>
+      <img src="images/teacher.png" id="teacher" alt="teacher" />
+      <section id="answer"></section>
+    </section>
+    <script>
+
+      var pass = 50;   // Pass mark
+      var score = 90;  // Score
+
+      // Check if the user has passed
+      var hasPassed = score >= pass;
+
+      // Write the message into the page
+      var el = document.getElementById('answer');
+      el.innerHTML = 'Level passed: ' + hasPassed;
+    </script>
+  </body>
+</html>

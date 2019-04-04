@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo de ejercicio</title>
+
+    <script src="../jquery-1.10.2.min.js"></script>
+
+
+
+    <script type="text/javascript">
+
+        //Estoy indicando que quiero esperar a que todo el documento esté cargado para poder trabajar con mis funciones.
+        $(document).ready(function ()
+        {
+
+            // Añado la propiedad CSS font-size con un valor de 25px. Si no estuviese definida, automáticamente jQuery la añade.
+            $('#azul').css('font-size', '25px');
+
+            // Añado diferentes propiedades CSS de una sóla vez. Hay que fijarse correctamente en la construcción.
+            $('#azul').css({
+                'font-size': '13px',
+                'font-style': 'italic',
+                'color': '#888888'
+            });
+
+            //Selecciono el elemento con ID amarillo y añado la clase extra para incluir sus propiedades cuando vea el HTML en el navegador.
+            $('#amarillo').addClass('extra');
+
+            //Selecciono el elemento con ID amarillo y elimino la clase extra para que no la pinte el navegador.
+            $('#amarillo').removeClass('extra');
+
+        });
+
+
+    </script>
+    <style>
+        #azul {
+
+            background-color: #3498db;
+
+        }
+
+        #rojo {
+
+            background-color: #c0392b;
+
+        }
+
+        #verde {
+
+            background-color: #2ecc71;
+
+        }
+
+        #amarillo {
+
+            background-color:#f1c40f;
+
+        }
+
+        .extra {
+
+            border: 3px solid #336699;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        p {
+
+            font-family: arial, helvetica;
+            padding: 50px;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+<h1>Hola usuarios de video2brain</h1>
+
+<div id="azul">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue pellentesque ipsum ac accumsan. Curabitur vehicula laoreet neque vitae tincidunt. Nunc accumsan in nibh ut convallis. Nam non euismod diam, fringilla ullamcorper turpis. </p>
+</div>
+<div id="rojo">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue pellentesque ipsum ac accumsan. Curabitur vehicula laoreet neque vitae tincidunt. Nunc accumsan in nibh ut convallis. Nam non euismod diam, fringilla ullamcorper turpis. </p>
+</div>
+<div id="verde">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue pellentesque ipsum ac accumsan. Curabitur vehicula laoreet neque vitae tincidunt. Nunc accumsan in nibh ut convallis. Nam non euismod diam, fringilla ullamcorper turpis. </p>
+</div>
+<div id="amarillo" class="extra">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque congue pellentesque ipsum ac accumsan. Curabitur vehicula laoreet neque vitae tincidunt. Nunc accumsan in nibh ut convallis. Nam non euismod diam, fringilla ullamcorper turpis. </p>
+</div>
+</body>
+</html>

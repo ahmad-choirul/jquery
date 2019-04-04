@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Advanced Table Example</title>
+<script src="jquery.js" type="text/javascript" language="javascript"></script>
+<script src="advancedtable.js" type="text/javascript" language="javascript"></script>
+<script language="javascript" type="text/javascript">
+	$().ready(function() {
+		$("#searchtable").show();
+		$("#table1").advancedtable({searchField: "#search", loadElement: "#loader", searchCaseSensitive: false});
+	});
+</script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="advancedtable.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="maincontent">
+    <div class="half left">
+     <table width="100%" class="normal" id="searchtable" border="0" cellspacing="4" cellpadding="0" style="display:none;">
+       <tr>
+         <td width="27%"><input name="search" type="text" id="search" style="display:none;" /></td>
+         <td width="73%"><div id="loader" style="display:none;"><img src="loader.gif" alt="Laoder" /></div></td>
+       </tr>
+     </table>
+     <table width="100%" id="table1" class="advancedtable" border="0" cellspacing="0" cellpadding="0">
+     <thead>
+       <tr>
+         <th width="6%">ID</th>
+         <th width="27%">Restorantes</th>
+         <th width="48%">Direccion</th>
+         <th width="19%">Telefono</th>
+       </tr>
+     </thead>
+       <tbody>
+       <tr>
+         <td>1</td>
+         <td><strong>PICAFLOR</strong></td>
+         <td>Via Degli Orombelli, 18 – 20131 Milano</td>
+         <td>02 70638310</td>
+       </tr>
+       <tr>
+         <td>2</td>
+         <td><strong>STELLA           LATINA</strong></td>
+         <td>Viale           Monza, 57 – 20125 Milano</td>
+         <td>02 28970407</td>
+       </tr>
+       <tr>
+         <td>3</td>
+         <td><strong>MACHU           PICCHU</strong></td>
+         <td>Via           Padova, 84 – 20131 Milano</td>
+         <td>02 2828170</td>
+       </tr>
+       <tr>
+         <td>4</td>
+         <td><strong>LAS           PALMERAS</strong></td>
+         <td>Via           Cassinis, 76 – 20139 Milano</td>
+         <td>02   57300341</td>
+       </tr>
+       <tr>
+         <td>5</td>
+         <td><strong>NOVOANDINA</strong></td>
+         <td>Via   Zuretti 22. Milano</td>
+         <td>02 87392221</td>
+       </tr>
+       <tr>
+         <td>6</td>
+         <td><strong>EL           TIPICO  2</strong></td>
+         <td>Via           Ranzoni, 21 – 20149 Milano</td>
+         <td>02   4093981</td>
+       </tr>
+       <tr>
+         <td>7</td>
+         <td><strong>MI           TIERRA</strong></td>
+         <td>Via           Paolo frisi, 11 – 20129 Milano</td>
+         <td>02   29520173</td>
+       </tr>
+       <tr>
+         <td>8</td>
+         <td><strong>PUERTO CHALACO</strong></td>
+         <td>Via Conegliano, 5 – 20131 Milano</td>
+         <td>02 288333</td>
+       </tr>
+       <tr>
+         <td>9</td>
+         <td><strong>EL TIPICO  1</strong></td>
+         <td>Via Giacosa, 4 – 20127 Milano</td>
+         <td>02 2618923</td>
+       </tr>
+       <tr>
+         <td>10</td>
+         <td><strong>LUCIO</strong></td>
+         <td>Via Boncompagni, 36 – 20139 Milano</td>
+         <td>02 5695795</td>
+       </tr>
+       <tr>
+         <td>11</td>
+         <td><strong>CEVICHERIA ROLANDO </strong></td>
+         <td>Viale Brenta, 33 – 20139 Milano</td>
+         <td>0347 4711127</td>
+       </tr>
+       <tr>
+         <td>12</td>
+         <td><strong>PEÑA DE POCHO</strong></td>
+         <td>           Via Degli Prombelli, 18 – 20131 Milano</td>
+         <td>02 70638310</td>
+       </tr>
+       <tr>
+         <td>13</td>
+         <td><strong>KHIPUS</strong></td>
+         <td>Via Nicola D'apulia, 14 – 20125 Milano</td>
+         <td>02 2829544</td>
+       </tr>
+       <tr>
+         <td>14</td>
+         <td><strong>EL PAISANO</strong></td>
+         <td>Via Paisiello, 5 – 20131 Milano</td>
+         <td>02 20241420</td>
+       </tr>
+       <tr>
+         <td>15</td>
+         <td><strong>MI PERU</strong></td>
+         <td>           Via Varallo, 1 – 20132 Milano</td>
+         <td>02 2822448</td>
+       </tr>
+       <tr>
+         <td>16</td>
+         <td><strong>EL PUERTO CHALACO </strong></td>
+         <td>Via conegliano, 5 – 20131 Milano</td>
+         <td>02 2828383</td>
+       </tr>
+       <tr>
+         <td>17</td>
+         <td><strong>SABOR LATINO</strong></td>
+         <td>Piazza Insubria, 3 – 20137 Milano</td>
+         <td>339 7267996</td>
+       </tr>
+       <tr>
+         <td>18</td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+       </tr>
+       <tr>
+         <td>19</td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+       </tr>
+       <tr>
+         <td>20</td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+         <td>&nbsp;</td>
+       </tr>
+
+      
+   
+       </tbody>
+     </table>
+    </div>
+    <div class="spacer"><!-- SPACER --></div>
+  </div>
+</div>
+</body>
+</html>

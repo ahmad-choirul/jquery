@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Update Variable</title>
+    <link rel="stylesheet" href="css/c02.css" />
+  </head>
+  <body>
+    <h1>Elderflower</h1>
+    <div id="content">
+      <div class="message">Available: <span id="stock"></span></div>
+      <div class="message">Shipping: <span id="shipping"></span></div>
+    </div>
+    <script>
+
+      // Create variables and assign them values
+      var inStock;
+      var shipping;
+
+      inStock = true;
+      shipping = false;
+
+      /* Some other processing might go here and, as a result, the script might need to change these values. */
+
+      inStock = false;
+      shipping = true;
+
+      // Get the element with an id of stock
+      var elStock = document.getElementById('stock');
+      // Set class name with value of inStock variable
+      elStock.className = inStock;
+      // Get the element with an id of shipping
+      var elShip = document.getElementById('shipping');
+      // Set class name with value of shipping variable
+      elShip.className = shipping;
+
+    </script>
+  </body>
+</html>

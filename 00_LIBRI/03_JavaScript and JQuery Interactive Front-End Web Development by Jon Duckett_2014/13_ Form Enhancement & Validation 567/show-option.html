@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 13: Form Enhancement and Validation - Submit disabled</title>
+    <link rel="stylesheet" href="css/c13.css"/>
+</head>
+<body>
+<div class="container login">
+    <form id="how-heard" action="/heard" method="post">
+        <div class="one-third column">
+            <img src="img/logo.png" alt="logo" id="logo"/>
+        </div>
+        <div class="two-thirds column" id="main">
+            <fieldset>
+                <legend>How did you hear of us?</legend>
+
+                <input type="radio" name="heard" value="search" id="search"/>
+                <label for="search">Search engine</label><br>
+
+                <input type="radio" name="heard" value="print" id="print"/>
+                <label for="print">Newspaper or magazine</label><br>
+
+                <input type="radio" name="heard" value="other" id="other"/> <label for="other">Other</label><br>
+                <input type="text" name="other-input" id="other-text"/>
+
+                <input id="submit" type="submit" value="submit"/>
+            </fieldset>
+        </div><!-- .two-thirds -->
+    </form>
+</div><!-- .container -->
+<script src="js/utilities.js"></script>
+<script>
+    (function ()
+    {
+        var form, options, other, otherText, hide;           // Declare variables
+        form = document.getElementById('how-heard');    // Get the form
+        options = form.elements.heard;                     // Get the radio buttons
+        other = document.getElementById('other');        // Other radio button
+        otherText = document.getElementById('other-text');   // Other text input
+        otherText.className = 'hide';                        // Hide other text input
+
+        for (var i = [0]; i < options.length; i++)
+        {         // Loop through radios
+            addEvent(options[i], 'click', radioChanged);       // Add event listener
+        }
+
+        function radioChanged()
+        {
+            hide = other.checked ? '' : 'hide';                // Is other checked?
+            otherText.className = hide;                        // Text input visibility
+            if (hide)
+            {                                        // If text input hidden
+                otherText.value = '';                            // Empty its contents
+            }
+        }
+    }());
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 6: Events - Event listener with parameters</title>
+    <link rel="stylesheet" href="css/c06.css"/>
+</head>
+<body>
+<div id="page">
+    <h1>List King</h1>
+    <h2>New Account</h2>
+    <form method="post" action="http://www.example.org/register">
+
+        <label for="username">Create a username: </label> <input type="text" id="username"/>
+        <div id="feedback"></div>
+
+        <label for="password">Create a password: </label> <input type="password" id="password"/>
+
+        <input type="submit" value="sign up"/>
+
+    </form>
+    <div>
+        <script>
+            var elUsername = document.getElementById('username');   // Username input
+            var elMsg = document.getElementById('feedback');   // Error msg element
+
+            function checkUsername(minLength)
+            {
+                if (elUsername.value.length < minLength) // If username too short
+                    elMsg.innerHTML = 'Username must be ' + minLength + ' characters or more';// Set the error message
+                else
+                    elMsg.innerHTML = '';                              // Clear msg
+
+            }
+
+            elUsername.addEventListener('blur', function ()
+            {        // When it loses focus
+                checkUsername(5);                                     // Pass argument here
+            }, false);
+
+        </script>
+</body>
+</html>

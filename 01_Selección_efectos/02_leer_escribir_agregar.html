@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" ></script>
+	<script>
+
+$(document).ready(function() {
+	//leer escribir y borrar
+	$('#boton1').click(leerTesto);
+		function leerTesto(){
+		var	a=$('#cambiatesto').text()
+		var	b=$('#loketaescrito');
+			b.text(a);
+		}
+		
+	$('#boton2').click(escribir);
+		function escribir() {
+			$('#cambiatesto').prepend('nuevo testo escrito');}//dentro al inizio
+			//b.before('nuevo testo escrito');}//antes del elemento
+			//b.after('nuevo testo escrito');}//despues del elemento	
+			//b.append('nuevo testo escrito');}//dentro al final
+			//b.text('nuevo testo escrito');}//sostituici testo
+
+	$('#boton3').click(leerAtributo);
+		function leerAtributo() {
+			var x=$('#tablita').attr('border');
+			var b=$('#bordo');
+					if (x>0){
+							b.text(x);
+					}else {
+							b.text('sin bordo');}
+
+				}
+		
+	$('#boton4').click(agregarAtributo);
+		function agregarAtributo() {
+			$('table').attr('border','6');		
+		}
+		
+	$('#boton5').click(removerAtributo);
+		function removerAtributo() {
+			$('table').removeAttr('border');
+		}
+		
+//asociar clase disciar clase
+	$('#boton6').click(asociar);
+		function asociar() {
+			$('#articulo').addClass('noticia');
+		}
+
+	$('#boton7').click(disociar);
+		function disociar () {
+			$('#articulo').removeClass('noticia');
+		}
+
+//agregar html
+	$('#muestra_for').click(muestrahtml);
+		function muestrahtml() {
+			$('#formulario').html('<form><input type="text" ><input type="submit" ></form>');			
+		}
+
+//focus 
+	$('#usuario').focus(enfocar);
+		function enfocar () {
+			x=$('#usuario').attr('value', '');
+		}
+
+	$('#usuario').blur(desenfocar);
+		function desenfocar () {
+			x=$('#usuario').attr('value', 'introduce usuario');
+		}
+
+});
+
+
+	</script>
+
+	<style>
+		.noticia{
+			width: 600px;
+			height: 200px;
+			border: 2px solid black;
+			background-color: red;
+		}
+
+	</style>
+
+
+</head>
+<body>
+	<div id="loketaescrito"></div>
+	<input type="button"  id="boton1" value="leer testo">
+	<input type="button"  id="boton2" value="escribir testo">
+
+	<p id="cambiatesto">este testo se va leer.</p>
+	<br>
+
+	<input type="button"  id="boton3" value="leer">
+	<input type="button"  id="boton4" value="escribir">
+	<input type="button"  id="boton5" value="borrar">
+	<br>
+
+	<table border="1" id="tablita">
+		<tr>
+			<td id="bordo">0</td>
+			<td>bordo</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>4</td>
+		</tr>
+	</table>
+<br><br>
+
+	<input type="button"  id="boton6" value="asociar clase">
+	<input type="button"  id="boton7" value="disociar clase">
+
+	<div id="articulo">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, quae.ù
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, eligendi.
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, eligendi.
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, eligendi.
+	</div>
+	<br>
+
+	<input type="button"  id="muestra_for" value="muestra formulario">
+	
+	<br>
+	<div id="formulario"></div>
+	<br>
+
+	<form >
+		<input type="text" value="introduce usuario" id="usuario">
+		<input type="submit">
+	</form>
+
+
+
+	
+</body>
+</html>

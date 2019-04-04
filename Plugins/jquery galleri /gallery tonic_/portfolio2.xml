@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portfolio>
+
+	<categories>
+		<category id="graphic">Inspiration</category>
+		<category id="web">Creative</category>
+		<category id="photo">Nature</category>
+	</categories>
+
+	<items>
+		<item>
+			<thumbnail>images/img1_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic,web,photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img2_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web,graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img3_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img4_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img5_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img6_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img7_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img8_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img9_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img10_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img11_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img12_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img6_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic,web,photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img4_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web,graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img8_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img2_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img1_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img3_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img7_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img5_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img9_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img12_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img11_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img10_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img1_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic,web,photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img2_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web,graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img3_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img4_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img5_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img6_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img7_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img8_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>web</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img12_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>photo</category>
+			<description>Description goes here</description>
+		</item>
+		<item>
+			<thumbnail>images/img10_small.jpg</thumbnail>
+			<preview>images/preview.jpg</preview>
+			<category>graphic</category>
+			<description>Description goes here</description>
+		</item>
+	</items>
+</portfolio>

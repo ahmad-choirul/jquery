@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery.js"></script>
+		<script type="text/javascript">
+			var x;
+			x=$(document);
+			x.ready(inicializar);
+
+			function inicializar(){
+				var x=$("#mostrar");
+				x.click(muestrame);
+				
+			}
+			function muestrame(){
+				var x=$("#objetivo");
+				x.slideToggle("slow");
+			}
+			
+			
+		</script>
+		<style type="text/css">
+			#objetivo{
+				width:200px;
+				height:200px;
+				background-color:yellow;
+				border:1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="mostrar" value="ocultar">
+		
+		
+		<div id="objetivo">Yo soy un div</div>
+	</body>
+</html>

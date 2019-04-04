@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 2: Basic JavaScript Instructions - Numeric Variable</title>
+    <link rel="stylesheet" href="css/c02.css" />
+  </head>
+  <body>
+    <h1>Elderflower</h1>
+    <div id="content">
+      <h2>Custom Signage</h2>
+      <div id="cost">Cost: $5 per tile</div>
+      <img src="images/preview.jpg" alt="Sign" />
+    </div>
+    <script>
+
+      // Create three variables to store the information needed.
+      var price;
+      var quantity;
+      var total;
+
+      // Assign values to the price and quantity variables.
+      price = 5;
+      quantity = 14;
+      // Calculate the total by multiplying the price by quantity.
+      total = price * quantity;
+
+      // Get the element with an id of cost.
+      var el = document.getElementById('cost');
+      el.textContent = '$' + total;
+
+      /*
+       NOTE: textContent does not work in IE8 or earlier
+       You can use innerHTML, but note the security issues on p228-231
+       el.innerHTML = '$' + total;
+       */
+    </script>
+  </body>
+</html>

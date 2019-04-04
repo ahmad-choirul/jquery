@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link type="text/css" href="jquery-ui.css" rel="stylesheet" />
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jquery-ui.js"></script>
+		<script type="text/javascript">
+			var x;
+			x=$(document);
+			x.ready(inicio);
+			function inicio(){
+				var x=$("#sortable");
+				x.sortable();
+				x.disableSelection();
+			}
+	</script>
+		</script>
+		</script>
+		<style type="text/css">
+			#sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+	#sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+	#sortable li span { position: absolute; margin-left: -1.3em; }
+			
+		</style>	
+	</head>
+	<body>
+		<div class="demo">
+	
+
+	<ul id="sortable">
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+	<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+</ul>
+</div>
+
+</div>
+		
+	</body>
+</html>
+

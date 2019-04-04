@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 3: Functions, Methods &amp; Objects - Object Literal 2</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info">
+      <h2>hotel availability</h2>
+      <div id="hotelName"></div>
+      <div id="availability">
+        <p id="rooms"></p>
+        <p>rooms left</p>
+      </div>
+    </div>
+    <script>
+      // Set up the object
+      var hotel = {
+        name : 'Park',
+        rooms : 120,
+        booked : 77,
+        checkAvailability : function() {
+          return this.rooms - this.booked; // Need "this" because inside function
+        }
+      };
+
+      // Update the HTML
+      var elName = document.getElementById('hotelName'); // Get element
+      elName.textContent = hotel.name;                   // Update HTML with property of the object
+
+      var elRooms = document.getElementById('rooms');    // Get element
+      elRooms.textContent = hotel.checkAvailability();   // Update HTML with property of the object
+
+      /*
+       NOTE: textContent does not work in IE8 or earlier
+       You can use innerHTML on lines 13 and 16, but note the security issues on p228-231
+       */
+    </script>
+  </body>
+</html>

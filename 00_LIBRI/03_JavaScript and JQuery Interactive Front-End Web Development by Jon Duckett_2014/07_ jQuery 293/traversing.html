@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 7: Introducing jQuery - Traversing</title>
+    <link rel="stylesheet" href="css/c07.css"/>
+</head>
+<body>
+<div id="page">
+    <h1 id="header">List</h1>
+    <h2>Buy groceries</h2>
+    <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+    </ul>
+</div>
+<script src="js/jquery-1.11.0.js"></script>
+<script>
+
+    $(function ()
+    {
+        var $h2 = $('h2');
+        $('ul').hide();
+        $h2.append('<a class="show">show</a>');
+
+        $h2.on('click', function ()
+        {
+            $h2.next('ul')
+                    .fadeIn(500)
+                    .children('.hot')
+                    .addClass('complete');
+            $h2.find('a').fadeOut();
+        });
+
+    });
+</script>
+</body>
+</html>

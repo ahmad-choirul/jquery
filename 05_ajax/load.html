@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$('a').click(muestrame);
+
+
+			function muestrame(){
+				var pagina=$(this).attr("href");
+				var x=$("#hablame");
+				x.ajaxStart(inicio);
+				x.load(pagina);
+				return false;
+			}
+
+			function inicio(){
+				var x=$("#hablame");
+				x.html("Cargando....");
+			}
+
+
+			});
+
+		</script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<a href="colores.php?color=verde">Hablame del verde</a>
+		<a href="colores.php?color=rojo">Hablame del rojo</a>
+		<a href="colores.php?color=azul">Hablame del azul</a>
+		<div id="hablame"></div>
+	</body>
+</html>

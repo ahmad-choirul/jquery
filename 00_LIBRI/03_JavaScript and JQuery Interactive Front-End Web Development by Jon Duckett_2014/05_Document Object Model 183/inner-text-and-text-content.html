@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 5: Document Object Model - Inner Text &amp; Text Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/c05.css">
+    <style>
+      /* This page hides the <em> elements to demonstrate difference between innerText and textContent */ 
+      em {display: none;}
+    </style>
+  </head>
+  <body>
+    <div id="page">
+      <h1 id="header">List</h1>
+      <h2>Buy groceries</h2>
+      <ul>
+        <li id="one" class="hot"><em>fresh</em> figs</li>
+        <li id="two" class="hot">pine nuts</li>
+        <li id="three" class="hot">honey</li>
+        <li id="four">balsamic vinegar</li>
+      </ul>
+      <div id="scriptResults"></div>
+    </div>
+    <script>
+      var firstItem = document.getElementById('one'); // Find first list item
+      var showTextContent = firstItem.textContent;    // Get value of textContent
+      var showInnerText = firstItem.innerText;        // Get value of innerText
+
+      // Show the content of these two properties at the end of the list
+      var msg = '<p>textContent: ' + showTextContent + '</p>';
+      msg += '<p>innerText: ' + showInnerText + '</p>';
+      var el = document.getElementById('scriptResults');
+      el.innerHTML = msg;
+
+      firstItem.textContent = 'sourdough bread';       // Update the first list item
+    </script>
+  </body>
+</html>

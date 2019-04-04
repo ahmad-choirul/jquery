@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Tonic Gallery- XML Portfolio Gallery</title>
+
+    <!-- THE STYLES -->
+    <link rel="stylesheet" type="text/css" href="styles/tonic_gallery.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/demo_styles.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/colorbox.css"/>
+
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="script/jquery-1.4.js"></script>
+    <script type="text/javascript" src="script/jquery-easing.js"></script>
+    <script type="text/javascript" src="script/jquery.colorbox-min.js"></script>
+    <script type="text/javascript" src="script/portfolio-setter.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // init the portfolio functionality
+            $('#portfolio').portfolioSetter({xmlSource: 'portfolio2.xml'});
+            $('#portfolio_wavy').portfolioSetter({xmlSource: 'portfolio2.xml', wavyAnimation: true});
+            $('#portfolio_small').portfolioSetter({
+                xmlSource: 'portfolio2.xml',
+                pageWidth: 520,
+                pageHeight: 190,
+                itemsPerPage: 8
+            });
+            $('#portfolio_nocat').portfolioSetter({
+                xmlSource: 'portfolio.xml',
+                pageHeight: 290,
+                itemsPerPage: 8,
+                showCategories: false,
+                easing: 'easeInBack'
+            });
+
+        });
+    </script>
+    <!-- END SCRIPTS -->
+
+</head>
+<body>
+<div id="main_container">
+    <div class="center">
+
+        <h1>Tonic Gallery- jQuery XML Portfolio Gallery</h1>
+        <hr/>
+        <h2>Default Settings, 12 items per page</h2>
+
+        <div id="portfolio"></div>
+
+        <br/>
+        <b>Usage:</b><br/><br/>
+        <code>$('#portfolio').portfolioSetter({xmlSource:'portfolio.xml'});</code>
+        <br/><br/>
+        <hr/>
+
+        <h2>Wavy animation, 12 items per page</h2>
+
+        <div id="portfolio_wavy"></div>
+
+        <br/>
+        <b>Usage:</b><br/><br/>
+        <code>$('#portfolio_wavy').portfolioSetter({xmlSource:'portfolio.xml', wavyAnimation:true});</code>
+        <br/><br/>
+        <hr/>
+
+        <h2>Smaller image size, smaller container size, 10 items per page</h2><br/>
+
+        <div id="portfolio_small"></div>
+
+        <br/>
+        <b>Usage:</b><br/><br/>
+        <code>$('#portfolio_small').portfolioSetter({xmlSource:'portfolio2.xml', pageWidth:520, pageHeight:190,
+            itemsPerPage:10});</code>
+        <br/><br/>
+        <hr/>
+
+        <h2>Without category filter and different pagination animation</h2><br/>
+
+        <div id="portfolio_nocat"></div>
+
+        <br/>
+        <b>Usage:</b><br/><br/>
+        <code>$('#portfolio_nocat').portfolioSetter({xmlSource:'portfolio.xml', pageHeight:290, itemsPerPage:8,
+            showCategories:false, easing:'easeInBack'});</code>
+        <br/><br/>
+
+
+    </div>
+</div>
+</body>
+</html>

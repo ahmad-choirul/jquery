@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript &amp; jQuery - Chapter 13: Form Enhancement and Validation - Character Counter for textarea</title>
+    <link rel="stylesheet" href="css/c13.css"/>
+</head>
+<body>
+<div class="container login">
+    <form name="howHeard" id="howHeard" action="/heard" method="post">
+        <div class="one-third column">
+            <img src="img/logo.png" alt="logo" id="logo"/>
+        </div>
+        <div class="two-thirds column" id="main">
+            <fieldset>
+                <legend>Profile</legend>
+                <label for="bio">Short Bio (up to 140 characters)</label>
+                <textarea name="bio" id="bio" rows="5" cols="30"></textarea> <span id="bio-count" class="hide"></span>
+            </fieldset>
+        </div><!-- .two-thirds -->
+    </form>
+</div><!-- .container -->
+<script src="js/utilities.js"></script>
+<script>
+    (function ()
+    {
+        var bio = document.getElementById('bio'),        // <textarea> element
+                bioCount = document.getElementById('bio-count');  // Character count el
+
+        addEvent(bio, 'focus', updateCounter);       // Call updateCounter() on focus
+        addEvent(bio, 'input', updateCounter);       // Call updateCounter() on input
+
+        addEvent(bio, 'blur', function ()
+        {          // On leaving the element
+            if (bio.value.length <= 140)
+            {             // If bio is not too long
+                bioCount.className = 'hide';             // Hide the counter
+            }
+        });
+
+        function updateCounter(e)
+        {
+            var target = e.target || e.srcElement;      // Get the target of the event
+            var count = 140 - target.value.length;      // How many characters are left
+            if (count < 0)
+            {                            // If less than 0 chars free
+                bioCount.className = 'error';             // Add class of error
+            } else if (count <= 15)
+            {                   // If less than 15 chars free
+                bioCount.className = 'warn';              // Add class of warn
+            } else
+            {                                    // Otherwise
+                bioCount.className = 'good';              // Add class of good
+            }
+            var charMsg = '<b>' + count + '</b>' + ' characters'; // Message to display
+            bioCount.innerHTML = charMsg;               // Update the counter element
+        }
+
+    }());
+</script>
+</body>
+</html>
